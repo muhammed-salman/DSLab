@@ -6,41 +6,46 @@ int stack[MAX_SIZE],top=-1;
 
 int isFull(){
 	//returns 1 if stack is full else returns -1
-	return (top==MAX_SIZE-1)?1:-1;
+	return top==MAX_SIZE-1;
+	
 }
 
 int isEmpty(){
 //returns 1 if stack is empty else returns -1
+	return top==-1;
+	
 }
 
 int peek(){
 //return element at the top of stack
+	return stack[top];
 }
 
 void push(int e){
 //inserts an element into stack
-	if(whether the stack is not full)
+	if(!isFull())
 	{
-		//increment the top
-		//set top of stack equal e
-		//msg element e successfully inserted
+		top++;//increment the top
+		stack[top]=e;//set top of stack equal e
+		printf("\nYour element %d is successfully inserted",e);//msg element e successfully inserted
 	}
 	else{
 		//msg stack overflow
+		printf("\nElement cannot be inserted. Stack Overflow!");
 	}
 }
 
 void pop(){
 //deletes an element from top of stack
 	int d;
-	if(whether the stack is not empty)
+	if(!isEmpty())
 	{
-		//d=top of stack
-		//decrement the top
-		//msg element d successfully deleted
+		d=stack[top];//d=top of stack
+		top--;//decrement the top
+		printf("\nYour element %d is successfully deleted",d);//msg element d successfully deleted
 	}
 	else{
-		//msg stack underflow
+		printf("\nElement cannot be deleted. Stack Underflow!");//msg stack underflow
 	}
 }
 
@@ -49,23 +54,28 @@ int main(){
 	do
 	{
 		//display menu 1.peek 2.push 3.pop 4.exit
-		printf("enter your choice");
-		//take input in choice variable
+		printf("\nEnter\n1.Peek\n2.Push\n3.Pop\n4.Exit\n");
+		printf("Enter your choice: ");
+		scanf("%d",&choice);	//take input in choice variable
 		switch(choice){
 			case 1:
-				//call peek function
+				e=peek();//call peek function
+				printf("\nElement at the top of stack is : %d",e);
 				break;
 			case 2:
-				//call push function
+				printf("\nEnter the elment to be inserted: ");
+				scanf("%d",&e);
+				push(e);//call push function
 				break;
 			case 3:
-				//call pop function
+				pop();//call pop function
 				break;
 			case 4:
-				//call exit(0) function or return 0
+				exit(0);//call exit(0) function or return 0
 				break;
 			default:
-				//invalid choice				
+				printf("\nInvalid Choice");//invalid choice
+				break;				
 		}
 	}while(1);
 	return 0;
