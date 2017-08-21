@@ -1,3 +1,6 @@
+/*Description: Check the continuity or balance of parenthesis in an expressio
+ * Learner: Muhammed Salman Shamsi
+ */
 #include<stdio.h>
 #include<ctype.h>
 #define MAX 100
