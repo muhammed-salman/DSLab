@@ -6,7 +6,7 @@ typedef struct linked_list{
 	struct linked_list *next;
 }node;
 
-void print(node *q)
+void print(node *q)  
 {
 	node *ptr;
 	ptr=q;
